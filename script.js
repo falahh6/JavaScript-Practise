@@ -1,6 +1,7 @@
 let firstName = 'Falah';
 let lastName = 'S';
 
+//Template Literals
 console.log(`my last name is ${lastName}`)
 let myname = `my first name is ${firstName}`;
 console.log(myname);
@@ -24,11 +25,13 @@ html = html + `</ul`;
 
 document.querySelector('#temp').innerHTML = html;
 
-
+//Ternary Operator , && , ||
 let to = (a > b && a < b) ? 'yes' : 'no';
-
+let to1 = (a > b || a < b) ? 'yes' : 'no';
 console.log(to);
+console.log(to1);
 
+//Array map();
 let arr = [1, 4, 9];
 let squareRoot = arr.map(Math.sqrt);
 console.log(squareRoot);
@@ -39,3 +42,152 @@ function sumFunc(num) {
 
 let sumDis = arr.map(sumFunc);
 console.log(sumDis);
+
+
+let mapEx = arr.map(x => x * 2);
+console.log(mapEx);
+
+
+//Array filter();
+// -arrow function
+let names = ["Falah", "Arham", "Ashaar", "Syed Mohammed"];
+
+let namesFiltered = names.filter(name => name.length > 5);
+console.log(namesFiltered);
+
+// -normal function
+let namesFiltered1 = names.filter(function namesF(name) {
+    return name.length > 6;
+});
+
+console.log(namesFiltered1);
+
+
+function filterCondition(value) {
+    return value > 50;
+}
+let valuesFilter = [1, 98, 3, 67, 88, 1].filter(filterCondition);
+console.log(valuesFilter);
+
+
+// Array reduce();
+let numArray = [50, 4, 8, 5, 6];
+
+function sum(previous, current) {
+    return previous + current;
+}
+console.log(numArray.reduce(sum));
+
+//Object shorthand : ES6
+
+const namee = 'Ashaar';
+const Role = 'Senior Dev Associate';
+const Age = 21;
+
+const Developer = {
+    namee,
+    Role,
+    Age
+}
+
+console.log(Developer);
+
+
+//Destructuring
+const userDetails = {
+    'name': 'Mohammed falah',
+    'age': 20,
+    'address': {
+        'city': 'Kumta',
+        'State': 'KA'
+    }
+}
+
+const {
+    name
+} = userDetails;
+
+console.log(name);
+console.log(userDetails)
+
+const {
+    address
+} = userDetails;
+console.log(address);
+
+function logDetails({
+    name,
+    age
+}) {
+    console.log(`${name} is ${age} years old`);
+}
+
+logDetails(userDetails);
+
+const myDef = {
+    'name': 'kaif',
+    'age': 19
+}
+
+logDetails(myDef);
+
+
+const getUsers = () => {
+    return {
+        'namex': 'herself',
+        'age': 17
+    }
+}
+
+const {
+    namex,
+    age
+} = getUsers();
+
+console.log(namex, age);
+
+//Spread Operator in JS
+
+const updatedDef = {
+    ...myDef,
+    age: 21,
+    salary: 989898
+};
+
+console.log(updatedDef);
+
+const mergedTwo = {
+    ...userDetails,
+    ...myDef
+};
+console.log(mergedTwo);
+
+
+//Promise is JS
+
+let myPromise = new Promise(function (resolve, reject) {
+    let a = 1 + 2;
+    if (a == 2) {
+        resolve()
+    } else {
+        reject();
+    }
+})
+myPromise.then((message) => {
+    console.log("Yes this results 2")
+}).catch((message) => {
+    console.log("No, this does'nt results 2");
+})
+
+//Callbacks
+function myCallback() {
+    console.log("this is from callback");
+}
+
+function sum(a, b, call) {
+    let s = a + b;
+    console.log("sum : " + s);
+    call;
+}
+
+sum(9, 4, myCallback());
