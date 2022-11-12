@@ -163,22 +163,6 @@ const mergedTwo = {
 console.log(mergedTwo);
 
 
-//Promise is JS
-
-let myPromise = new Promise(function (resolve, reject) {
-    let a = 1 + 2;
-    if (a == 2) {
-        resolve()
-    } else {
-        reject();
-    }
-})
-myPromise.then((message) => {
-    console.log("Yes this results 2")
-}).catch((message) => {
-    console.log("No, this does'nt results 2");
-})
-
 //Callbacks
 function myCallback() {
     console.log("this is from callback");
@@ -191,3 +175,49 @@ function sum(a, b, call) {
 }
 
 sum(9, 4, myCallback());
+
+//Promise
+let promise = new Promise((resolve, reject) => {
+    let phone = 'Android';
+    if (phone === 'Android') {
+        resolve('This Phone has Android Operating System');
+    } else {
+        reject('This Phone has iOS Operating System');
+    }
+})
+
+promise.then(message => {
+    console.log(message);
+}).catch(message => {
+    console.log(message);
+})
+
+///
+function makeRequest(location) {
+    return new Promise((resolve, reject) => {
+        console.log(`Making Request to ${location}`)
+        if (location == 'Google') {
+            resolve('Google says hi')
+        } else {
+            reject('We can only talk to Google')
+        }
+    })
+}
+
+function processRequest(response) {
+    return new Promise((resolve, reject) => {
+        console.log('Processing response')
+        resolve(`Extra Information + ${response}`)
+    })
+}
+async function doWork() {
+    try {
+        const response = await makeRequest('Google');
+        console.log('Response Recieved');
+        const processedRequest = await processRequest(response);
+        console.log(processedRequest)
+    } catch (err) {
+        console.log(err);
+    }
+}
+doWork()

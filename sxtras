@@ -1,0 +1,37 @@
+//Promise is JS
+
+// let myPromise = new Promise(function (resolve, reject) {
+//   let a = 1 + 2;
+//   if (a == 2) {
+//     resolve()
+//   } else {
+//     reject();
+//   }
+// })
+// myPromise.then((message) => {
+//   console.log("Yes this results 2")
+// }).catch((message) => {
+//   console.log("No, this does'nt results 2");
+// })
+
+
+
+////
+
+const pro = new Promise((resolve, reject) => {
+  let location = 'x'
+  console.log(`Making Request to ${location}`)
+  if (location == 'G') {
+    resolve('Google says hi')
+  } else {
+    reject('We can only talk to Google')
+  }
+})
+
+
+pro.then(message => {
+  console.log(message);
+})
+
+
+///
