@@ -164,17 +164,17 @@ console.log(mergedTwo);
 
 
 //Callbacks
-function myCallback() {
-    console.log("this is from callback");
-}
+// function myCallback() {
+//     console.log("this is from callback");
+// }
 
-function sum(a, b, call) {
-    let s = a + b;
-    console.log("sum : " + s);
-    call;
-}
+// function sum(a, b, call) {
+//     let s = a + b;
+//     console.log("sum : " + s);
+//     call;
+// }
 
-sum(9, 4, myCallback());
+// sum(9, 4, myCallback());
 
 //Promise
 let promise = new Promise((resolve, reject) => {
@@ -192,7 +192,7 @@ promise.then(message => {
     console.log(message);
 })
 
-///
+/// Async Await
 function makeRequest(location) {
     return new Promise((resolve, reject) => {
         console.log(`Making Request to ${location}`)
@@ -221,3 +221,19 @@ async function doWork() {
     }
 }
 doWork()
+
+
+export default class User {
+    constructor(naam, place) {
+        this.naam = naam;
+        this.place = place;
+    }
+}
+
+export function printUserName(naam) {
+    console.log(`User name us ${naam}`);
+}
+
+export function printUserPlace(place) {
+    console.log(`User Place is ${place}`);
+}
