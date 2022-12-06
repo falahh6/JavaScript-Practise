@@ -1,13 +1,15 @@
-import {
-    printUserName,
-    printUserPlace
-} from './script';
-import User from '/script.js'
-const uu = new User('falah', 22);
-console.log(uu);
+export default class User {
+    constructor(name, place) {
+        this.name = name;
+        this.place = place;
+    }
+}
 
 
-let xyz = printUserName('falah6');
-console.log(xyz);
+export function printName(naam) {
+    console.log(`my name is ${naam}`)
+}
 
-document.getElementById('xyz').innerHTML = xyz;
+export function printPlace(place) {
+    console.log(`i live in ${place}`);
+}
